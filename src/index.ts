@@ -148,7 +148,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case "list_tasks": {
         const params = new URLSearchParams();
         if (a.status) params.set("status", String(a.status));
-        if (a.assignee) params.set("assignee", String(a.assignee));
+        if (a.assignee) params.set("assignedTo", String(a.assignee));
         const qs = params.toString();
         result = await apiFetch(`/api/tasks${qs ? `?${qs}` : ""}`);
         break;
